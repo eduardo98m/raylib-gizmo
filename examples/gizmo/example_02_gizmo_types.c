@@ -24,7 +24,7 @@
 //--------------------------------------------------------------------------------------------------
 // Example 02 - Gizmo Types
 // Demonstrates multiple gizmo modes (translate, rotate, scale, and all combined) with fixed
-// configurations for simplicity in a simple scene.
+// configurations.
 //--------------------------------------------------------------------------------------------------
 
 #include "raylib.h"
@@ -51,35 +51,35 @@ enum
 
 int main(int argc, char** argv)
 {
-    // These Transforms store the translation, rotation, and scaling of the crates.
-    // They will be dynamically updated by the gizmos during the program.
+    // These Transforms store the translation, rotation, and scaling of the crates
+    // They will be dynamically updated by the gizmos during the program
     Transform crateTransforms[CRATE_COUNT];
 
-    // Initialize the transforms with default values.
+    // Initialize the transforms with default values
     for (int i = 0; i < CRATE_COUNT; ++i)
     {
         crateTransforms[i] = GizmoIdentity();
-        crateTransforms[i].translation.x = -12.0f + 6.0f * (float)i;  // Offset crates along the X-axis.
+        crateTransforms[i].translation.x = -12.0f + 6.0f * (float)i;  // Offset crates along the X-axis
     }
 
-    // Assign each crate a different gizmo type.
+    // Assign each crate a different gizmo type
     const int gizmoTypes[CRATE_COUNT] = { GIZMO_TRANSLATE, GIZMO_SCALE, GIZMO_ROTATE, GIZMO_ALL };
 
-    // Setup: Initialize the window and basic configurations.
+    // Setup: Initialize the window
     SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_WINDOW_RESIZABLE);
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, TextFormat("raylib-gizmo | %s", EXAMPLE_TITLE));
     SetTargetFPS(60);
 
-    // Load the crate texture.
+    // Load the crate texture
     Texture crateTexture = LoadTexture("resources/textures/crate_texture.jpg");
     GenTextureMipmaps(&crateTexture);
     SetTextureFilter(crateTexture, TEXTURE_FILTER_TRILINEAR);
 
-    // Load the crate model and apply the texture.
+    // Load the crate model and apply the texture
     Model crateModel = LoadModel("resources/models/crate_model.obj");
     crateModel.materials[0].maps[MATERIAL_MAP_ALBEDO].texture = crateTexture;
 
-    // Setup the 3D camera.
+    // Setup the 3D camera
     Camera cam = { 0 };
     cam.fovy = 45.0f;
     cam.position = (Vector3){ -5.5f, 10.5f, 14.0f };
@@ -87,24 +87,24 @@ int main(int argc, char** argv)
     cam.up = (Vector3){ 0, 1, 0 };
     cam.projection = CAMERA_PERSPECTIVE;
 
-    // Main game loop.
+    // Main loop
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
-        // Clear the background with a dark blue color.
+        // Clear the background with a dark blue color
         ClearBackground((Color) { 0, 0, 25, 255 });
 
         BeginMode3D(cam);
 
-        // Draw the crates with their updated transforms.
+        // Draw the crates with their updated transforms
         for (int i = 0; i < CRATE_COUNT; ++i)
         {
             crateModel.transform = GizmoToMatrix(crateTransforms[i]);
             DrawModel(crateModel, Vector3Zero(), 1.0f, WHITE);
         }
 
-        // Draw the gizmos and handle user input.
+        // Draw the gizmos and handle user input
         for (int i = 0; i < CRATE_COUNT; ++i)
         {
             DrawGizmo3D(gizmoTypes[i], &crateTransforms[i]);
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
         EndDrawing();
     }
 
-    // Unload resources and clean up.
+    // Unload resources and clean up
     UnloadTexture(crateTexture);
     UnloadModel(crateModel);
     CloseWindow();
