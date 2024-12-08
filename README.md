@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/raylib--gizmo-v0.1beta-informational) ![Version](https://img.shields.io/badge/raylib-v5.5-informational) <!-- ![License](https://img.shields.io/github/license/cloudofoz/raylib-gizmo) -->
+![Version](https://img.shields.io/badge/raylib--gizmo-v0.1beta-informational) ![Version](https://img.shields.io/badge/raylib-v5.5-informational)  ![License](https://img.shields.io/github/license/cloudofoz/raylib-gizmo)
 
 > **Note**: This library is in **beta**. Your feedback and support in enhancing its quality are greatly appreciated!
 
@@ -8,8 +8,8 @@
 No dependencies other than raylib: just include `raygizmo.c/.h` in your project, and you're ready to go!
 
 <p align="center">
-  <!--img src="res/rmedia_icon.svg" alt="raylib-media icon" width="270" height="270">
-  <img src="res/raylib_example_01.gif" alt="raylib-example"-->
+  <img src="res/raygizmo_icon.svg" alt="raylib-gizmo icon" width="270" height="270">
+  <!--img src="res/raylib_example_01.gif" alt="raylib-example"-->
 </p>
 
 ## Table of Contents
@@ -36,13 +36,37 @@ No dependencies other than raylib: just include `raygizmo.c/.h` in your project,
 ```c
 #include <raygizmo.h>
 
-while (...) { // Begin your main loop
-    // Minimal usage example here (TODO)
-    ...
-}
-```
+int main(...) {
 
-I will complete it in the next commits.
+    Model model;
+
+    ...
+
+    // Initialize a Transform for the gizmo.
+    // This Transform stores translation, rotation, and scaling values,
+    // and will be dynamically updated by the gizmo during the program.
+    Transform gizmoTransform = GizmoIdentity();
+  
+    while (...) {
+    
+        ...
+
+        // Update the model's transform matrix using the gizmo's Transform.
+        model.transform = GizmoToMatrix(gizmoTransform);
+
+        // Draw the model with the updated transformation matrix.
+        DrawModel(model, Vector3Zero(), 1.0f, WHITE);
+    
+        // Render a translation + rotation gizmo and handle user input.
+        // The gizmoTransform will be directly updated by this gizmo.
+        DrawGizmo3D(GIZMO_TRANSLATE | GIZMO_ROTATE, &gizmoTransform);
+
+        ...
+
+    }
+}
+
+```
 
 ---
 
@@ -50,9 +74,9 @@ I will complete it in the next commits.
 
 **[`1) example_01_getting_started.c`](https://github.com/cloudofoz/raylib-gizmo/blob/main/examples/gizmo/example_01_getting_started.c)**  
 > *Description:* Demonstrates how to integrate and interact with a simple, globally oriented, 3D translation gizmo in a raylib scene.
-   <!--p align="center">
-    <img src="res/rmedia_example_01.jpg" alt="rmedia_example_01.jpg" width="380">
-   </p-->
+   <p align="center">
+    <img src="res/raygizmo_example_01.jpg" alt="raygizmo_example_01.jpg" width="380">
+   </p>
    
 ---
 
