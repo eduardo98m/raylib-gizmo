@@ -77,6 +77,12 @@ int main(...) {
    <p align="center">
     <img src="res/raygizmo_example_01.jpg" alt="raygizmo_example_01.jpg" width="380">
    </p>
+
+**[`2) example_02_gizmo_types.c`](https://github.com/cloudofoz/raylib-gizmo/blob/main/examples/gizmo/example_02_gizmo_types.c)**  
+> *Description:* Demonstrates multiple gizmo modes (translate, rotate, scale, and all combined) with fixed configurations for simplicity.
+   <p align="center">
+    <img src="res/raygizmo_example_02.jpg" alt="raygizmo_example_02.jpg" width="380">
+   </p>
    
 ---
 
