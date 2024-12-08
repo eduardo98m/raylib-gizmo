@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/raylib--gizmo-v0.1beta-informational) ![Version](https://img.shields.io/badge/raylib-v5.5-informational)  ![License](https://img.shields.io/github/license/cloudofoz/raylib-gizmo)
+![Version](https://img.shields.io/badge/raylib--gizmo-v0.1beta-informational) ![Version](https://img.shields.io/badge/raylib-v5.5-informational)  ![License](https://img.shields.io/github/license/cloudofoz/raylib-gizmo?refresh=1)
 
 > **Note**: This library is in **beta**. Your feedback and support in enhancing its quality are greatly appreciated!
 
