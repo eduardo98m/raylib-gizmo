@@ -8,8 +8,9 @@
 No dependencies other than raylib: just include `raygizmo.c/.h` in your project, and you're ready to go!
 
 <p align="center">
+  <img src="res/raylib-gizmo-types.gif" alt="raylib-gizmo types">
   <img src="res/raygizmo_icon.svg" alt="raylib-gizmo icon" width="270" height="270">
-  <img src="res/raylib-gizmo.gif" alt="raylib-example">
+  <img src="res/raylib-gizmo.gif" alt="raylib-gizmo example">
 </p>
 
 ## Table of Contents
