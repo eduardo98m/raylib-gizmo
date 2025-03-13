@@ -39,7 +39,7 @@ No dependencies other than raylib: just include `raygizmo.c/.h` in your project,
 
    ```bash
    git clone https://github.com/cloudofoz/raylib-gizmo
-   cd r3d
+   cd raylib-gizmo
    ```
 
 2. **Optional: Clone raylib submodule**:
