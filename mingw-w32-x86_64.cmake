@@ -3,7 +3,7 @@
 # Typical usage:
 #    *) install cross compiler: `sudo apt-get install mingw-w64`
 #    *) cd build                         
-#    *) cmake -DCMAKE_TOOLCHAIN_FILE=mingw-w32-x86_64.cmake -DR3D_BUILD_SHARED=ON -DR3D_BUILD_EXAMPLES=OFF ..
+#    *) cmake -DCMAKE_TOOLCHAIN_FILE=mingw-w32-x86_64.cmake -DRGIZMO_BUILD_SHARED=ON -DRGIZMO_BUILD_EXAMPLES=OFF ..
 # This is free and unencumbered software released into the public domain.
 
 set (CMAKE_SYSTEM_NAME Windows)

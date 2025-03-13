@@ -84,6 +84,6 @@ endif()
 
 # Example configuration
 
-#if(RGIZMO_BUILD_EXAMPLES)
-#    include("${RGIZMO_ROOT_PATH}/examples/CMakeLists.txt")
-#endif()
+if(RGIZMO_BUILD_EXAMPLES)
+    include("${RGIZMO_ROOT_PATH}/examples/CMakeLists.txt")
+endif()

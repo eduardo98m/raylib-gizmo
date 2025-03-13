@@ -29,7 +29,7 @@
 #include "raylib.h"
 #include "raygizmo.h"
 #include "raymath.h"
-
+#include "./common.h"
 //--------------------------------------------------------------------------------------------------
 // Constants
 //--------------------------------------------------------------------------------------------------
@@ -55,12 +55,13 @@ int main(int argc, char** argv)
     SetTargetFPS(60);
 
     // Load the crate texture.
-    Texture crateTexture = LoadTexture("resources/textures/crate_texture.jpg");
+    Texture crateTexture = RES_LoadTexture("textures/crate_texture.jpg");
     GenTextureMipmaps(&crateTexture);
     SetTextureFilter(crateTexture, TEXTURE_FILTER_TRILINEAR);
 
     // Load the crate model and apply the texture.
-    Model crateModel = LoadModel("resources/models/crate_model.obj");
+    Model crateModel = RES_LoadModel("models/crate_model.obj");
+
     crateModel.materials[0].maps[MATERIAL_MAP_ALBEDO].texture = crateTexture;
 
     // Setup the 3D camera.

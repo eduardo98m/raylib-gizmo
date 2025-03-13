@@ -16,6 +16,7 @@ No dependencies other than raylib: just include `raygizmo.c/.h` in your project,
 ## Table of Contents
 
 - [Core Features](#core-features)
+- [Installation](#installation)
 - [Minimal Usage](#minimal-usage)
 - [Code Examples](#code-examples)
 - [License](#license)
@@ -31,6 +32,33 @@ No dependencies other than raylib: just include `raygizmo.c/.h` in your project,
 - **Immediate-Mode Style:** Just one function call to draw and interact with the gizmo.
 - **Camera Independence:** Gizmo size remains consistent regardless of camera movement.
 - **raylib Integration:** Leverages raylib's `Transform` structure, eliminating the need for additional data structures.
+
+## Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/cloudofoz/raylib-gizmo
+   cd r3d
+   ```
+
+2. **Optional: Clone raylib submodule**:
+
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+3. **Build the library**:
+
+   Use CMake to configure and build the library.
+
+   ```bash
+   mkdir build
+   cd build
+   cmake ..
+   cmake --build .
+   ```
+
 
 ## Minimal Usage
 
