@@ -9,5 +9,5 @@ function(add_example example_name source_file)
 endfunction()
 
 add_example(example_01 "examples/example_01_getting_started.c")
-add_example(exqample_02 "examples/example_02_gizmo_types.c")
+add_example(example_02 "examples/example_02_gizmo_types.c")
 
