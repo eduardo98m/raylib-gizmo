@@ -410,6 +410,7 @@ bool DrawGizmo3D(int flags, Transform* transform)
 		if (data.flags & GIZMO_ROTATE)
 		{
 			DrawGizmoCircle(&data, i);
+			//DrawGizmoArrow(&data, i);
 		}		
 	}
 	if ((data.flags & (GIZMO_SCALE | GIZMO_TRANSLATE)) != 0) 
@@ -432,6 +433,7 @@ bool DrawGizmo3D(int flags, Transform* transform)
 	{
 		GizmoHandleInput(&data);
 	}
+	
 
 	//------------------------------------------------------------------------
 
@@ -728,14 +730,24 @@ static void DrawGizmoPlane(const GizmoData* data, int index)
 
 static void DrawGizmoArrow(const GizmoData* data, int axis)
 {
-	if (IsThisGizmoTransforming(data) && (!IsGizmoAxisActive(axis) || !IsGizmoTranslating()))
-	{
-		return;
-	}
 
 	const Vector3 endPos = Vector3Add(data->curTransform->translation,
-	                                  Vector3Scale(data->axis[axis],
-	                                               data->gizmoSize * (1.0f - GIZMO.trArrowLengthFactor)));
+		Vector3Scale(data->axis[axis],
+					 data->gizmoSize * (1.0f - GIZMO.trArrowLengthFactor)));
+	if (IsThisGizmoTransforming(data))
+	{
+		if (IsGizmoTranslating() && !IsGizmoAxisActive(axis)){
+			return;
+		}
+
+		// if (!IsGizmoTranslating() && IsGizmoAxisActive(axis)){
+		// 	return;
+		// }
+
+		DrawLine3D(data->curTransform->translation, endPos, GIZMO.axisCfg[axis].color);
+		
+	}
+
 
 	if (!(data->flags & GIZMO_SCALE))
 		DrawLine3D(data->curTransform->translation, endPos, GIZMO.axisCfg[axis].color);
